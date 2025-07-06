@@ -1,3 +1,95 @@
+
+let playerChoice = ""
+let computerScore = 0
+let playerScore = 0 
+
+function chooseRock() {
+    playerChoice = "Rock"
+    console.log(playerChoice)
+    let text = document.querySelector('#playerText')
+    let computer = computerChoice()
+    text.textContent = "You chose Rock!"
+    playRound(computer, playerChoice)
+}
+
+function choosePaper() {
+    playerChoice = "Paper"
+    console.log(playerChoice)
+    let text = document.querySelector('#playerText')
+    let computer = computerChoice()
+    text.textContent = "You chose Paper!"
+    playRound(computer, playerChoice)
+}
+
+function chooseScissors() {
+    playerChoice = "Scissors"
+    console.log(playerChoice)
+    let text = document.querySelector('#playerText')
+    let computer = computerChoice()
+    text.textContent = "You chose Scissors!"
+    playRound(computer, playerChoice)
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+    const rockButton = document.querySelector('#rock')
+    rockButton.onclick = chooseRock
+})
+
+document.addEventListener("DOMContentLoaded", function(){
+    const paperButton = document.querySelector('#paper')
+    paperButton.onclick = choosePaper
+})
+
+document.addEventListener("DOMContentLoaded", function(){
+    const scissorsButton = document.querySelector('#scissors')
+    scissorsButton.onclick = chooseScissors
+})
+
+function computerChoice() {
+    let number = Math.random()
+    if (number < 0.33) {return "Rock"}
+    else if (number < 0.67) {return "Scissors"}
+    else return "Paper"
+}
+
+function playRound (computer, player) {
+
+    let text = document.querySelector('#computerText')
+    text.textContent = "Computer chose " + computer + "!"
+    let result = document.querySelector('#resultText')
+
+    if (computer === player) {
+        result.textContent = "Computer: " + computerScore + ", Player: " + playerScore
+        return 
+    } else if (computer === "Rock" && player === "Scissors") {
+        computerScore++
+        result.textContent = "Computer: " + computerScore + ", Player: " + playerScore
+        return 
+    } else if (computer === "Rock" && player === "Paper") {
+        playerScore++
+        result.textContent = "Computer: " + computerScore + ", Player: " + playerScore
+        return 
+    } else if (computer === "Scissors" && player === "Rock") {
+        playerScore++
+        result.textContent = "Computer: " + computerScore + ", Player: " + playerScore
+        return 
+    } else if (computer === "Scissors" && player === "Paper") {
+        computerScore++
+        result.textContent = "Computer: " + computerScore + ", Player: " + playerScore
+        return 
+    } else if (computer === "Paper" && player === "Rock") {
+        computerScore++
+        result.textContent = "Computer: " + computerScore + ", Player: " + playerScore
+        return 
+    } else if (computer === "Paper" && player === "Scissors") {
+        playerScore++
+        result.textContent = "Computer: " + computerScore + ", Player: " + playerScore
+        return 
+    } 
+}
+
+
+/*Old code
 console.log("Game Start!")
 
 let computerSelection = computerChoice()
@@ -89,4 +181,4 @@ function playGame() {
     
 }
 
-playGame()
+playGame() */
