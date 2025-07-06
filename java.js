@@ -63,27 +63,30 @@ function playRound (computer, player) {
 
 function playGame() {
     console.log("Round 1!")
-    playRound (computerSelection, playerSelection)
     computerSelection = computerChoice()
     playerSelection = playerChoice()
+    playRound (computerSelection, playerSelection)
 
     console.log("Round 2!")
-    playRound (computerSelection, playerSelection)
     computerSelection = computerChoice()
     playerSelection = playerChoice()
+    playRound (computerSelection, playerSelection)
 
     console.log("Round 3!")
-    playRound (computerSelection, playerSelection)
     computerSelection = computerChoice()
     playerSelection = playerChoice()
+    playRound (computerSelection, playerSelection)
 
     console.log("Round 4!")
-    playRound (computerSelection, playerSelection)
     computerSelection = computerChoice()
     playerSelection = playerChoice()
-    
-    console.log("Round 5!")
     playRound (computerSelection, playerSelection)
+
+    console.log("Round 5!")
+    computerSelection = computerChoice()
+    playerSelection = playerChoice()
+    playRound (computerSelection, playerSelection)
+    
 }
 
 playGame()
